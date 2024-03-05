@@ -123,8 +123,8 @@ li {
 
 input {
 	box-sizing: border-box;
-	width:90%;
-	flex: 0 0 30%;
+	width:96%;
+	flex: 0 0 35%;
 	padding-left: 15px;
 	text-align: center;
 }
@@ -138,8 +138,8 @@ input {
 }
 
 #chat-div, #chat-p {
-	width: 90%;
-	border: 1px solid #E94F37;
+	width: 96%;
+	/* border: 2px solid #E94F37; */
 	border-radius: 10px;
 }
 
@@ -156,17 +156,22 @@ input {
 
 #chat-div {
 	padding:10px;
-	flex: 0 0 70%;
+	flex: 0 0 78%;
 }
 
-header, footer, #banner {
-	flex: 0 0 10%;
+header, #banner {
+	flex: 0 0 11%;
 }
+
+footer {
+	flex: 0 0 8%
+}
+
 
 
 input {
 	display: block;
-	border: 1px solid black;
+	/* border: 2px solid #E94F37; */
 	border-radius: 50px;
 }
 
@@ -204,6 +209,7 @@ footer, header, #chat-container, #input-div {
 #main-content { 
 	background-color: #E94F37;
 }
+
 
 
 /* Debug coloring */
