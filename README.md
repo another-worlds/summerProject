@@ -4,8 +4,8 @@ TODO:
 
 * Frontend
  1) Create figma pages DONE
- 2) Learn react + js JS DONE REACT TBD
- 3) Build frontend TBD
+ 2) Learn react + js DONE
+ 3) Build frontend DONE
 * Backend
  1) Set up Django backend
  2) Set up langchain generator
