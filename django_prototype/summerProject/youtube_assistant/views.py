@@ -3,9 +3,14 @@ from rest_framework.decorators import api_view
 from rest_framework import status
 from .serializers import *
 
+
 from .models import Message
 
+
 # Create your views here.
+
+def index(request):
+    return 
 
 @api_view(['GET', 'POST'])
 def message_list(request):

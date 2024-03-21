@@ -1,15 +1,21 @@
-import './App.css';
-import {Fragment} from "react";
-import Header from "../appHeader/Header";
-import Home from "../appHome/Home";
+import React from "react"
+import ReactDOM from "react-dom/client"
 
-function App() {
+import Banner from "../Banner"
+import Header from "../Header"
+import Content from "../Content"
+import Footer from "../Footer"
+  
+export default function App() {
     return (
-        <Fragment>
+        <div id="root">
+            <Banner/>
             <Header/>
-            <Home/>
-        </Fragment>
-    );
+            <Content/>
+            <Footer/>
+        </div>
+    )
 }
 
-export default App;
+var root = document.getElementById("root")
+ReactDOM.createRoot(root).render(<App/>)
