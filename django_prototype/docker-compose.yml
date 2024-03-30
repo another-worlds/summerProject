@@ -18,9 +18,6 @@ services:
     volumes:
       - django_static_volume:/usr/src/app/static
       - django_media_volume:/usr/src/app/media
-    # подключаем к сети myNetwork (в целом не обязательно, но до кучи чтоб было)
-    networks:
-      - myNetwork
 
   node:
     # Аналогично, build из ./summerProject/reactapp/dockerfile
@@ -37,9 +34,7 @@ services:
     # Зависимость. нет смысла ноде, если некому отдать ей данные. поэтому сначала стартуем сервис django, а за ней node
     depends_on:
       - django
-    # Сеть та же, все контейнеры должны крутиться в однйо сети чтобы видеть друг друга.
-    networks:
-      - myNetwork
+
 # создаём два volume для статики
 volumes:
   django_static_volume:

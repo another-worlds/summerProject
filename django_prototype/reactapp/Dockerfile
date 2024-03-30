@@ -12,4 +12,4 @@ RUN npm install
 # то будете ждать пока зальётся этот каталог целиком. 
 # да и потом могут возникнуть проблемы.
 ADD ./public ./public
-ADD ./src ./src
+ADD ./src ./src 
