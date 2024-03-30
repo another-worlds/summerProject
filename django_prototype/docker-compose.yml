@@ -3,7 +3,7 @@ version: '3.8'
 services:
   django:
     #говорим что build будет из dockerfile который располагается ./summerProject/
-    build: ./summerProject/summerProject
+    build: ./summerProject
     # имя контейнера
     container_name: djangoapp
     # перезапускать контейнер при завершении выполнения работы или при аварийном завершении
