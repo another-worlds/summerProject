@@ -24,7 +24,8 @@ const MessageForm = (props) => {
         if (!props.newMessage) {
             setMessage(message => props.message)
         }
-        // If this value is changed, call function above
+        // If this value is changed, call function above\
+        // eslint-disable-next-line
     }, [props.message])
 
     // if value is empty, initialize it with empty string??? | probably mandatory   
@@ -37,6 +38,7 @@ const MessageForm = (props) => {
         // Make sure not default value posted
         e.preventDefault();
         // Wait until UPDATE request is completed, receive JSON with results
+        // eslint-disable-next-line
         const result = await axios.put(API_URL + message.pk, message, {headers: {'Content-Type': 'multipart/form-data'}})
             // Then update messages and hide form
             .then(() => {
@@ -53,6 +55,7 @@ const MessageForm = (props) => {
             text: message['text'],
         }
         // Wait until POST request is completed, receive JSON with results
+        // eslint-disable-next-line
         const result = await axios.post(API_URL, data, {headers: {'Content-Type': 'multipart/form-data'}})
             // Then update messages and hide form
             .then(() => {
