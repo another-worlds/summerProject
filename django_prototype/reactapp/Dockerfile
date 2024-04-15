@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 # Копируем туда наши json файлы
 ADD *.json ./
 # Устанавливаем все пакеты и зависимости указанные в json
-RUN npm install
+RUN yarn install
 
 # Добавляем каталоги public и src. 
 # можно воспользоваться командой COPY . . но если вы синхронизировали node_modules,
