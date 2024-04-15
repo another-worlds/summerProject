@@ -5,8 +5,8 @@ import App from './components/app/App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-export const API_URL = "http://http://51.21.122.125:8000/api/youtube_assistant/"
-export const API_STATIC_MEDIA = "http://http://51.21.122.125:8000/"
+export const API_URL = "http://51.21.122.125:8000/api/youtube_assistant/"
+export const API_STATIC_MEDIA = "http://51.21.122.125:8000/"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
