@@ -1,6 +1,6 @@
+import { ScrollView } from "react";
 import {Table} from "reactstrap";
-import ModalMessage from "../appModalMessage/ModalMessage";
-import AppRemoveMessage from "../appRemoveMessage/RemoveMessage";
+import ModalMessage from "../appModalMessage/ModalMessage"
 
 const getStyle = (origin) => {
     if (origin == "system") {
@@ -17,25 +17,31 @@ const getStyle = (origin) => {
 const ListMessages = (props) => {
     const {messages} = props
     return (
-        <Table dark>
-            <tbody>
-                
-            {!messages || messages.length <= 0 ? (
-                // If no messages, display empty rows
-                <tr>
-                    <td colSpan="2" align="center">
-                        <b>Пока ничего нет</b>
-                    </td>
-                </tr>
-                // if messages, map the table with template:
-            ) : messages.map(message => (
-                    <tr style={getStyle(message.origin)} key={message.pk}>
-                        <td>{message.text}</td>
+        <div id="chat-container">
+            <Table dark id="chat-div">
+                <tbody>
+                    
+                {!messages || messages.length <= 0 ? (
+                    // If no messages, display empty rows
+                    <tr>
+                        <td colSpan="2" align="center">
+                            <b>Пока ничего нет</b>
+                        </td>
                     </tr>
-                )
-            )}
-            </tbody>
-        </Table>
+                    // if messages, map the table with template:
+                ) : messages.map(message => (
+                        <tr style={getStyle(message.origin)} key={message.pk}>
+                            <td>{message.text}</td>
+                        </tr>
+                    )
+                )}
+                </tbody>
+            </Table>
+            <ModalMessage id="chat-input"
+            create={true}
+            resetState={props.resetState}
+            newMessage={true}/>
+        </div>
     )
 }
 

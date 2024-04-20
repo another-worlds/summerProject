@@ -142,7 +142,7 @@ input {
 	align-items: center;
 }
 
-#chat-div, #chat-p {
+#chat-div, #chat-p, #chat-input {
 	width: 96%;
 	/* border: 2px solid #E94F37; */
 	border-radius: 10px;
@@ -151,17 +151,21 @@ input {
 
 
 #chat-p {
-	font-size: 300%;
+	font-size: 200%;
 	text-align: center;
-	flex: 0 0 15%;
+	flex: 0 0 5%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
+#chat-inpit {
+	padding: 10px;
+}
+
 #chat-div {
 	padding:10px;
-	flex: 0 0 78%;
+	flex: 0 0 80%;
 }
 
 header, #banner {
@@ -191,6 +195,11 @@ header {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+td {
+	border-radius: 5px;
+	
 }
 
 /* BORDERS */

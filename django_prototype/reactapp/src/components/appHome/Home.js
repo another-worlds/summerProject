@@ -24,23 +24,18 @@ const Home = () => {
     };
 
     return (
-        <Container style={{marginTop: "20px"}}>
-            <Row>
-                <Col>
-                    {/* Call list function with object context */}
-                    <ListMessages messages={messages} resetState={resetState} newMessage={false}/>
-                </Col>
-            </Row>
-            <Row>
-                <Col style={{display:"flex"}}>
-                    {/*  */}
-                    <ModalMessage
-                    create={true}
-                    resetState={resetState}
-                    newMessage={true}/>
-                </Col>
-            </Row>
-        </Container>
+        <div id="main-content">    
+            <div id="input-div">
+                <input placeholder="https://www.youtube.com/watch?v=10M5BW6hwVM" id="url-input"/>
+                <input placeholder="Who is Asmongold?" id="question"/>
+            </div>
+            {/* Call list function with object context */}
+            <ListMessages 
+            messages={messages} 
+            resetState={resetState} 
+            newMessage={false}/>
+
+        </div>
     )
 }
 

@@ -38,9 +38,10 @@ const ModalMessage = (props) => {
 
 
     return (
-        <Fragment>
+        <Fragment >
             <Form
-                style={{display:"flex", width: "100%"}} 
+                id="chat-input"
+                style={{display:"flex"}} 
                 onSubmit={submitDataAdd}>
                 {/* Second field */}
                 <div style={{flex: "0 0 90%"}}>
