@@ -32,7 +32,7 @@ const Home = () => {
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col style={{display:"flex"}}>
                     {/*  */}
                     <ModalMessage
                     create={true}

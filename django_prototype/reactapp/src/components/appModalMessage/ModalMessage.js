@@ -1,52 +1,62 @@
 import {Fragment, useState} from "react";
-import {Button, Modal, ModalHeader, ModalBody} from "reactstrap";
-import MessageForm from "../appMessageForm/MessageForm";
+import {Button, Form, Input} from "reactstrap";
+
+import axios from "axios";
+import {API_URL} from "../../index";
 
 const ModalMessage = (props) => {
-    // Object and setter function
-    const [visible, setVisible] = useState(false)
+    // Stateful object and function
+    const [message, setMessage] = useState({})
 
-    // Create button object and attach function (set call to toggle function)
-    var button = <Button onClick={() => toggle()}>Редактировать</Button>;
 
-    // Switch visibility of a form
-    const toggle = () => {
-        setVisible(!visible)
+    // On message change update message
+    const onChange = (e) => {
+        const newState = message
+        if (e.target.name === "file") {
+            newState[e.target.name] = e.target.files[0]
+        } else newState[e.target.name] = e.target.value
+        console.log(e.target.name)
+        console.log(e.target.value)
+        setMessage(newState)
     }
 
-    // If message doesn't exist, create "add message"
-    if (props.create) {
-        button = (
-            <Button
-                color="primary"
-                className="float-right"
-                onClick={() => toggle()}
-                style={{minWidth: "200px"}}>
-                Добавить сообщение
-            </Button>
-        )
+    const submitDataAdd = async (e) => {
+        e.preventDefault();
+        // Set data fields
+        const data = {
+            origin: "user",
+            text: message['text'],
+        }
+        // Wait until POST request is completed, receive JSON with results
+        // eslint-disable-next-line
+        const result = await axios.post(API_URL, data, {headers: {'Content-Type': 'multipart/form-data'}})
+            // Then update messages and hide form
+            .then(() => {
+                props.resetState()
+            })
     }
+
+
     return (
         <Fragment>
-            {button}
-            {/* Set visibility of a modal (open form) */}
-            <Modal isOpen={visible} toggle={toggle}>
-                <ModalHeader
-                    // Set header of a form depending on the action
-                    style={{justifyContent: "center"}}>{props.create ? "Добавить сообщение" : "Редактировать сообщение"}</ModalHeader>
-                <ModalBody>
-                    <MessageForm
-                        // If message exists, fill it 
-                        message={props.message ? props.message : []}
-                        // On action list messages again
-                        resetState={props.resetState}
-                        // On button press, hide form
-                        toggle={toggle}
-                        // On sumbit create message(How? Generics?)
-                        newMessage={props.newMessage}
+            <Form
+                style={{display:"flex", width: "100%"}} 
+                onSubmit={submitDataAdd}>
+                {/* Second field */}
+                <div style={{flex: "0 0 90%"}}>
+                    <Input 
+
+                        type="text"
+                        name="text"
+                        onChange={onChange}
+                        defaultValue={""}
                     />
-                </ModalBody>
-            </Modal>
+                </div>
+                <div style={{flex: "0 0 10%"}}>
+                    {/* On Send call onChange*/}
+                    <Button style={{width:"100%"}}>Send</Button> 
+                </div>
+            </Form>
         </Fragment>
     )
 }
